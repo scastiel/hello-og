@@ -11,9 +11,9 @@ const handle = (req: NextRequest) => {
   const title = searchParams.get('title') || 'No post title'
   const author = searchParams.get('author') || 'Anonymous'
   const date = new Date(searchParams.get('date') || '2022-11-05T12:00:00.000Z')
-  const cover = `${protocol}//${host}${
+  const cover = `${protocol}//${host}/_next/image?url=${encodeURIComponent(
     searchParams.get('cover') || '/cover.jpg'
-  }`
+  )}&w=1200&q=75`
 
   return new ImageResponse(
     (
